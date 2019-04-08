@@ -137,38 +137,47 @@ happens.
 
 | Line                                               | Expected Result | Actual Result | Were you right? Why? |
 | -------------------------------------------------- | --------------- | ------------- | -------------------- |
-| `var alex = {name: 'alex', age: 23, height: 163}`  |                 |               |                      |
-| `alex.name`                                        |                 |               |                      |
-| `alex.age`                                         |                 |               |                      |
-| `alex.age = 1000`                                  |                 |               |                      |
-| `alex` (use the ▶ to expand the object)            |                 |               |                      |
-| `alex.hairColor = 'blue'`                          |                 |               |                      |
-| `alex`                                             |                 |               |                      |
-| `var pet = {name: 'amber', type: 'dog'}`           |                 |               |                      |
-| `pet`                                              |                 |               |                      |
-| `alex.pet = pet`                                   |                 |               |                      |
-| `alex`                                             |                 |               |                      |
-| `pet.name = 'lyla'`                                |                 |               |                      |
-| `alex.pet`                                         |                 |               |                      |
-| `delete alex.pet`                                  |                 |               |                      |
-| `alex.pet`                                         |                 |               |                      |
-| `pet`                                              |                 |               |                      |
-| `alex["name"]`                                     |                 |               |                      |
-| `var someString = 'age'`                           |                 |               |                      |
-| `alex[someString]`                                 |                 |               |                      |
-| `alex[someString] = 23`                            |                 |               |                      |
-| `var weirdObj = {spooky: true}`                    |                 |               |                      |
-| `weirdObj.strange = weirdObj`                      |                 |               |                      |
-| `weirdObj` (use ▶ to expand - how far does it go?) |                 |               |                      |
+| `var alex = {name: 'alex', age: 23, height: 163}`  |undefined (object created as alex)            
+| `alex.name`                                        |alex             |               |                      |
+| `alex.age`                                         |23               |               |                      |
+| `alex.age = 1000`                                  |sets age = 1000                                     
+| `alex` (use the ▶ to expand the object)            |name: 'alex' ; age: 1000 ; height: 163           
+| `alex.hairColor = 'blue'`                          |undefined           got - 'blue'
+| `alex`                                             |name: 'alex' ;age: 1000 ; height: 163 ; haircolour: 'blue'
+| `var pet = {name: 'amber', type: 'dog'}`           |creates object of pet
+| `pet`                                              |{name: 'amber', type: 'dog'}
+| `alex.pet = pet`                                   |pet:{name: 'amber', type: 'dog'}
+| `alex`                                             |name: 'alex' ;age: 1000 ; height: 163 ; haircolour: 'blue'
+                                                      pet:{name: 'amber', type: 'dog'}; __proto__: Object                                                   
+| `pet.name = 'lyla'`                                |pet:{name: 'lyla', type: 'dog'}                                                   
+| `alex.pet`                                         |pet:{name: 'lyla', type: 'dog'}                                                     
+| `delete alex.pet`                                  |deletes object pet   returns true              |                                     
+| `alex.pet`                                         |undefined                |               |                      
+| `pet`                                              |pet:{name: 'lyla', type: 'dog'}                                                      
+| `alex["name"]`                                     |alex                                                     
+| `var someString = 'age'`                           |string of 'age'                                                   
+| `alex[someString]`                                 |1000                                                     
+| `alex[someString] = 23`                            |sets age to 23                                |                      
+| `var weirdObj = {spooky: true}`                    |creates object of weirdObj                                                      
+| `weirdObj.strange = weirdObj`                      |spooky: true; strange: { spooky: true, strange {...} }                                                          makes a continuous object
+| `weirdObj` (use ▶ to expand - how far does it go?) |infinate                                                   |
 
 Answer the following questions (you might need to do some research!)
 
 1. What is a JavaScript object?
+
+JavaScript objects are containers for named values called properties or methods.
+An object is a collection of properties, and a property is an association between a name (or key) and a value. A property's value can be a function, in which case the property is known as a method.
+
 1. In a JavaScript object, what are:
-   - keys
-   - values
-   - properties
+   - keys : the name of a property
+   - values: the value of a property
+   - properties: a key value pair that make up an object. A property of an object can be explained as a variable that is attached to the object.
+
 1. Why would you use an object in JavaScript
+
+Objects are useful for example for making a single unit out of values that belong together.
+
 
 ## Challenge
 
